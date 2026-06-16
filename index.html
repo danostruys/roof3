@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shingle Roof Prices 2026 | Caliber Roofing &amp; Exteriors</title>
-<meta name="description" content="See exactly what a new shingle roof should cost you in 2026. Local NE Florida pricing in 60 seconds.">
+<meta name="description" content="See exactly what a new shingle roof should cost you in 2026. Local Grand Rapids pricing in 60 seconds.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -112,9 +112,14 @@
       display:flex;flex-direction:column;
       padding:36px 20px 56px;gap:0;
     }
-    .hero-text{order:1}
+    .hero-text{order:1;text-align:center}
+    .hero-text .eyebrow{margin-left:auto;margin-right:auto}
+    .hero-text .sub{margin-left:auto;margin-right:auto}
     .quiz-col{order:2;margin-top:30px}
     .hero-proof{order:3;margin-top:38px}
+    /* match the reference: full-width pale CTA + outlined card */
+    .quiz-cta-pill{width:100%;padding:18px 22px;letter-spacing:.1em}
+    .quiz{border:1.5px solid rgba(59,130,246,.45)}
   }
 
   .eyebrow{
@@ -164,14 +169,18 @@
   .quiz-col{position:relative}
   .quiz-cta-pill{
     display:flex;align-items:center;justify-content:center;gap:10px;
-    margin:0 auto 14px;width:max-content;max-width:100%;
-    background:linear-gradient(120deg,var(--ink),var(--blue-deep));color:#fff;
-    font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
-    padding:11px 22px;border-radius:999px;
-    box-shadow:0 10px 24px -12px rgba(30,58,138,.7);
+    margin:0 auto 6px;width:max-content;max-width:100%;
+    background:var(--blue-pale);color:var(--blue-dark);
+    border:1px solid #c5dafc;
+    font-size:14px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    padding:16px 30px;border-radius:999px;
+    box-shadow:0 8px 22px -12px rgba(37,99,235,.45);
   }
-  .quiz-cta-pill svg{width:14px;height:14px;animation:bounce 1.6s infinite}
-  @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+  .quiz-cta-arrow{
+    display:flex;justify-content:center;margin:0 auto 14px;color:var(--blue);
+  }
+  .quiz-cta-arrow svg{width:30px;height:30px;animation:bounce 1.6s infinite}
+  @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
 
   .quiz{
     background:var(--card);
@@ -290,6 +299,23 @@
   .btn-next svg{width:17px;height:17px;transition:transform .25s}
   .btn-next:hover svg{transform:translateX(4px)}
 
+  /* primary "money" CTA — richer moving gradient + slow sheen sweep so it reads crafted, not template-default */
+  .cta-primary{
+    background:linear-gradient(120deg,var(--blue-deep),var(--blue) 42%,var(--blue-bright) 72%,var(--ok)) !important;
+    background-size:170% 100% !important;
+    animation:ctaShift 7s ease infinite;
+    font-weight:800;letter-spacing:.01em;
+  }
+  @keyframes ctaShift{0%{background-position:0 0}50%{background-position:100% 0}100%{background-position:0 0}}
+  .cta-primary::after{
+    content:"";position:absolute;top:0;left:-65%;width:38%;height:100%;
+    background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);
+    transform:skewX(-18deg);pointer-events:none;
+    animation:ctaSheen 4.2s ease-in-out infinite;
+  }
+  @keyframes ctaSheen{0%{left:-65%}60%,100%{left:135%}}
+  @media(prefers-reduced-motion:reduce){.cta-primary{animation:none}.cta-primary::after{display:none}}
+
   .quiz-privacy{
     margin-top:18px;padding-top:16px;border-top:1px solid var(--line);
     font-size:12.5px;color:#73809a;line-height:1.6;
@@ -352,6 +378,7 @@
     background:linear-gradient(120deg,var(--blue),var(--blue-bright));color:#fff;
     font-weight:700;font-size:16px;letter-spacing:.02em;
     display:flex;align-items:center;justify-content:center;gap:9px;
+    position:relative;overflow:hidden;
     box-shadow:0 12px 26px -10px rgba(37,99,235,.7);
     transition:transform .14s;
   }
@@ -359,7 +386,8 @@
   .mobile-cta button svg{width:17px;height:17px}
   @media(max-width:920px){
     .mobile-cta{display:block}
-    footer{padding-bottom:96px}
+    /* reserve room for the fixed bar so it never sits over the footer */
+    body{padding-bottom:calc(86px + env(safe-area-inset-bottom))}
   }
 
   /* ───────── below the fold ───────── */
@@ -413,9 +441,9 @@
         <span>&amp; Exteriors</span>
       </span>
     </a>
-    <a class="topbar-phone" href="tel:+19045550123">
+    <a class="topbar-phone" href="tel:+16165550123">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg>
-      <em>Call or text&nbsp;·</em>&nbsp;(904) 555-0123
+      <em>Call or text&nbsp;·</em>&nbsp;(616) 555-0123
     </a>
   </div>
 </div>
@@ -423,15 +451,16 @@
 <!-- ───────── HERO ───────── -->
 <main class="hero">
   <section class="hero-text">
-    <span class="eyebrow"><span class="dot"></span>2026 NE Florida pricing — updated this month</span>
-    <h1>Here's how much a new <span class="accent">shingle roof</span> should cost you in 2026</h1>
-    <p class="sub">Real local prices for Jacksonville &amp; NE Florida homes — <strong>plus, we'll beat any written quote from our biggest competitors.</strong></p>
+    <h1>Roof replacement <span class="accent">starting at $8,500</span></h1>
+    <p class="sub">Honest local pricing from a lean, owner-run crew — <strong>without the "luxury tax" the big roofing companies build into every quote.</strong></p>
   </section>
 
   <!-- ───────── QUIZ ───────── -->
   <section class="quiz-col">
     <div class="quiz-cta-pill">
       Get shingle roof prices here
+    </div>
+    <div class="quiz-cta-arrow">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M6 14l6 6 6-6"/></svg>
     </div>
 
@@ -495,7 +524,7 @@
             <h2 class="q-title">Where is the property?</h2>
             <div class="field" data-field="zip">
               <label for="zip">ZIP code</label>
-              <input id="zip" inputmode="numeric" autocomplete="postal-code" maxlength="5" placeholder="32256">
+              <input id="zip" inputmode="numeric" autocomplete="postal-code" maxlength="5" placeholder="49503">
               <span class="field-error">Enter a valid 5-digit ZIP code.</span>
             </div>
             <div class="nav-row">
@@ -522,13 +551,13 @@
             </div>
             <div class="field" data-field="phone">
               <label for="phone">Phone</label>
-              <input id="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(904) 555-0123">
+              <input id="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(616) 555-0123">
               <span class="field-error">Enter a valid phone number.</span>
             </div>
             <div class="nav-row">
               <button class="btn-back" data-back>Back</button>
-              <button class="btn-next" id="submitBtn">
-                Get my roof price
+              <button class="btn-next cta-primary" id="submitBtn">
+                Show me my price
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
               </button>
             </div>
@@ -557,15 +586,15 @@
     <div class="proof-row">
       <div class="proof-item">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2l-3.5-3.5L4 14.2 9 19.2 20 8.2l-1.4-1.4z"/></svg>
-        <span><strong>Honest, line-item pricing</strong> — see exactly what materials and labor cost before you commit</span>
+        <span><strong>No "luxury tax"</strong> — you're not paying for a fancy office, TV ads, or a commissioned sales team</span>
       </div>
       <div class="proof-item">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2l-3.5-3.5L4 14.2 9 19.2 20 8.2l-1.4-1.4z"/></svg>
-        <span><strong>Hurricane-rated installs</strong> — engineered for Florida wind codes, backed by manufacturer warranty</span>
+        <span><strong>The same name-brand materials</strong> — the exact products the big guys use, without their 3x markup</span>
       </div>
       <div class="proof-item">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2l-3.5-3.5L4 14.2 9 19.2 20 8.2l-1.4-1.4z"/></svg>
-        <span><strong>No lead reselling</strong> — your info goes to our office only, never to other contractors</span>
+        <span><strong>Owner-run, own crews</strong> — Tyler oversees every job; no sketchy subcontractors, no cut corners</span>
       </div>
     </div>
 
@@ -579,7 +608,7 @@
       </span>
       <span><b>4.9 / 5</b> from local homeowners</span>
       <span>·</span>
-      <span><b>Licensed &amp; insured</b> in Florida</span>
+      <span><b>Licensed &amp; insured</b> in Michigan</span>
     </div>
   </section>
 </main>
@@ -587,26 +616,26 @@
 <!-- ───────── BAND ───────── -->
 <section class="band">
   <div class="band-inner">
-    <h2>Why NE Florida homeowners choose architectural shingles</h2>
-    <p>Today's architectural (dimensional) shingles are far tougher than the old 3-tab style — engineered for Florida heat and storms, backed by long manufacturer warranties, and priced for almost any budget.</p>
+    <h2>Same roof. Same materials. Without the big-company markup.</h2>
+    <p>The big names aren't charging more for better work — they're charging for offices, billboards, and bloated overhead. We run lean: a small local team, our own crews, and finances kept tight. Less overhead for us, a fairer price for you.</p>
     <div class="band-stats">
-      <div class="stat"><b>25–30</b><span>Year lifespan</span></div>
-      <div class="stat"><b>130</b><span>MPH wind rating</span></div>
-      <div class="stat"><b>Lifetime</b><span>Mfr. warranty available</span></div>
+      <div class="stat"><b>30–40%</b><span>Under typical big-name quotes</span></div>
+      <div class="stat"><b>$8,500</b><span>Where full replacements start</span></div>
+      <div class="stat"><b>100%</b><span>Owner-overseen, own crews</span></div>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="foot-brand">Caliber Roofing &amp; Exteriors</div>
-  <div class="foot-addr">123 Example St, Jacksonville, FL 32256 · (904) 555-0123</div>
-  <div class="foot-legal">© 2026 Caliber Roofing &amp; Exteriors · Licensed &amp; insured in FL &nbsp;<a href="#">Privacy</a> · <a href="#">Terms</a></div>
+  <div class="foot-addr">123 Example St, Grand Rapids, MI 49503 · (616) 555-0123</div>
+  <div class="foot-legal">© 2026 Caliber Roofing &amp; Exteriors · Licensed &amp; insured in MI &nbsp;<a href="#">Privacy</a> · <a href="#">Terms</a></div>
 </footer>
 
 <!-- ───────── MOBILE STICKY CTA ───────── -->
 <div class="mobile-cta" id="mobileCta">
-  <button id="mobileCtaBtn">
-    Get my roof price
+  <button id="mobileCtaBtn" class="cta-primary">
+    See my price — takes 60 sec
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
   </button>
 </div>
@@ -615,7 +644,7 @@
 <div class="toast" id="toast" role="status" aria-live="polite">
   <div class="toast-avatar" id="toastAvatar">M</div>
   <div class="toast-body">
-    <div id="toastText"><b>Mark N.</b> from Gainesville just requested a shingle roof quote</div>
+    <div id="toastText"><b>Mark N.</b> from Wyoming just requested a shingle roof quote</div>
     <div class="toast-time" id="toastTime">18 min ago</div>
   </div>
 </div>
@@ -733,11 +762,11 @@
 
   /* ───── rotating social-proof toasts ───── */
   var proofs = [
-    {n:'Mark N.',  c:'Gainesville',   t:'18 min ago'},
-    {n:'Sandra K.',c:'Jacksonville',  t:'34 min ago'},
-    {n:'Derek P.', c:'St. Augustine', t:'52 min ago'},
-    {n:'Alyssa R.',c:'Orange Park',   t:'1 hr ago'},
-    {n:'Tom B.',   c:'Fleming Island',t:'2 hrs ago'}
+    {n:'Mark N.',  c:'Wyoming',       t:'18 min ago'},
+    {n:'Sandra K.',c:'Kentwood',      t:'34 min ago'},
+    {n:'Derek P.', c:'Walker',        t:'52 min ago'},
+    {n:'Alyssa R.',c:'Grandville',    t:'1 hr ago'},
+    {n:'Tom B.',   c:'Rockford',      t:'2 hrs ago'}
   ];
   var toast = document.getElementById('toast');
   var ti = 0;
@@ -752,7 +781,7 @@
   setTimeout(showToast, 4000);
   setInterval(showToast, 18000);
 
-  /* ───── mobile sticky CTA: show only when quiz is out of view ───── */
+  /* ───── mobile sticky CTA: tappable anytime EXCEPT while the form is on screen ───── */
   var mobileCta = document.getElementById('mobileCta');
   var quizEl = document.getElementById('quiz');
 
@@ -761,14 +790,11 @@
   });
 
   if('IntersectionObserver' in window){
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        // hide the bar while the quiz is on screen, show it once scrolled away
-        var successDone = document.getElementById('successView').classList.contains('active');
-        mobileCta.classList.toggle('show', !e.isIntersecting && !successDone);
-      });
-    }, {threshold:0.25});
-    io.observe(quizEl);
+    new IntersectionObserver(function(entries){
+      var successDone = document.getElementById('successView').classList.contains('active');
+      // hidden only while the quiz is on screen (they're filling it out) or after submit
+      mobileCta.classList.toggle('show', !entries[0].isIntersecting && !successDone);
+    }, {threshold:0.25}).observe(quizEl);
   }
 })();
 </script>
