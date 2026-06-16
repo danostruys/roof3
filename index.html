@@ -25,7 +25,7 @@
     --shadow:0 24px 60px -22px rgba(30,58,138,.34);
   }
   *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;overflow-x:hidden}
   body{
     font-family:'Public Sans',system-ui,sans-serif;
     background:var(--paper);
@@ -114,12 +114,9 @@
     }
     .hero-text{order:1;text-align:center}
     .hero-text .eyebrow{margin-left:auto;margin-right:auto}
-    .hero-text .sub{margin-left:auto;margin-right:auto}
-    .quiz-col{order:2;margin-top:30px}
+    .hero-text .sub{margin-left:auto;margin-right:auto;margin-bottom:14px}
+    .quiz-col{order:2;margin-top:6px}
     .hero-proof{order:3;margin-top:38px}
-    /* match the reference: full-width pale CTA + outlined card */
-    .quiz-cta-pill{width:100%;padding:18px 22px;letter-spacing:.1em}
-    .quiz{border:1.5px solid rgba(59,130,246,.45)}
   }
 
   .eyebrow{
@@ -169,24 +166,25 @@
   .quiz-col{position:relative}
   .quiz-cta-pill{
     display:flex;align-items:center;justify-content:center;gap:10px;
-    margin:0 auto 6px;width:max-content;max-width:100%;
+    margin:0 auto 4px;width:max-content;max-width:100%;
     background:var(--blue-pale);color:var(--blue-dark);
     border:1px solid #c5dafc;
-    font-size:14px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
-    padding:16px 30px;border-radius:999px;
+    font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    padding:12px 26px;border-radius:999px;
     box-shadow:0 8px 22px -12px rgba(37,99,235,.45);
+    animation:floatBounce 2.6s ease-in-out infinite;
   }
   .quiz-cta-arrow{
-    display:flex;justify-content:center;margin:0 auto 14px;color:var(--blue);
+    display:flex;justify-content:center;margin:0 auto 12px;color:var(--blue);
   }
-  .quiz-cta-arrow svg{width:30px;height:30px;animation:bounce 1.6s infinite}
-  @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+  .quiz-cta-arrow svg{width:24px;height:24px;animation:floatBounce 2.6s ease-in-out infinite}
+  @keyframes floatBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
 
   .quiz{
     background:var(--card);
     border-radius:var(--radius);
     box-shadow:var(--shadow);
-    border:1px solid var(--line);
+    border:2px solid rgba(37,99,235,.5);
     overflow:hidden;
     position:relative;
     transition:transform .4s cubic-bezier(.34,1.2,.5,1),box-shadow .4s;
@@ -426,6 +424,23 @@
     *,*::before,*::after{animation:none!important;transition:none!important}
   }
 </style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1962340030986198');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1962340030986198&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
 
